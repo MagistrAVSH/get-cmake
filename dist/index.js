@@ -2412,6 +2412,7 @@ ToolsGetter.CMakeVersion = '3.23.0';
 ToolsGetter.NinjaVersion = '1.10.2';
 // Predefined URL for CMake 
 ToolsGetter.linux_x64 = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-linux-x86_64.tar.gz`;
+ToolsGetter.linux_aarch64 = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-linux-aarch64.tar.gz`;
 ToolsGetter.win_x64 = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-windows-x86_64.zip`;
 ToolsGetter.macos = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-macos-universal.tar.gz`;
 // Predefined URL for ninja
@@ -2420,7 +2421,7 @@ ToolsGetter.ninja_macos_x64 = `https://github.com/ninja-build/ninja/releases/dow
 ToolsGetter.ninja_windows_x64 = `https://github.com/ninja-build/ninja/releases/download/v${ToolsGetter.NinjaVersion}/ninja-win.zip`;
 ToolsGetter.cmakePackagesMap = {
     "linux": {
-        url: ToolsGetter.linux_x64,
+        url: ToolsGetter.linux_aarch64,
         binPath: 'bin/',
         extractFunction: tools.extractTar, dropSuffix: ".tar.gz"
     },

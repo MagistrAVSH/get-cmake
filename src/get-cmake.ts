@@ -95,15 +95,15 @@ export class ToolsGetter {
     core.debug(`hash('${inputHash}') === '${key}'`);
     const outPath = this.getOutputPath(key);
     let hitKey: string | undefined = undefined;
-    try {
-      core.startGroup(`Restore from cache using key '${key}' into ${outPath}`);
-      hitKey = await cache.restoreCache([outPath], key);
-    } finally {
-      core.endGroup();
-    }
+    // try {
+    //   core.startGroup(`Restore from cache using key '${key}' into ${outPath}`);
+    //   hitKey = await cache.restoreCache([outPath], key);
+    // } finally {
+    //   core.endGroup();
+    // }
 
     if (hitKey === undefined) {
-      await core.group("Download and extract CMake", async () => {
+      await core.group("Download and extract CMake: " + cmakeData.url, async () => {
         const downloaded = await tools.downloadTool(cmakeData.url);
         await cmakeData.extractFunction(downloaded, outPath);
       });
@@ -130,7 +130,7 @@ export class ToolsGetter {
     try {
       core.startGroup(`Save to cache using key '${key}' into ${outPath}`);
       if (hitKey === undefined) {
-        await this.saveCache([outPath], key);
+        //await this.saveCache([outPath], key);
       } else {
         core.info("Skipping as cache hit.");
       }
