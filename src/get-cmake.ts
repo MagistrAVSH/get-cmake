@@ -37,6 +37,7 @@ export class ToolsGetter {
 
   // Predefined URL for CMake 
   private static readonly linux_x64: string = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-linux-x86_64.tar.gz`;
+  private static readonly linux_aarch64: string = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-linux-aarch64.tar.gz`;
   private static readonly win_x64: string = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-windows-x86_64.zip`;
   private static readonly macos: string = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-macos-universal.tar.gz`;
 
@@ -47,7 +48,7 @@ export class ToolsGetter {
 
   private static readonly cmakePackagesMap: { [key: string]: PackageInfo } = {
     "linux": {
-      url: ToolsGetter.linux_x64,
+      url: ToolsGetter.linux_aarch64,
       binPath: 'bin/',
       extractFunction: tools.extractTar, dropSuffix: ".tar.gz"
     },
