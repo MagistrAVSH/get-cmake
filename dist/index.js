@@ -2337,16 +2337,15 @@ class ToolsGetter {
             const key = hashCode(inputHash);
             core.debug(`hash('${inputHash}') === '${key}'`);
             const outPath = this.getOutputPath(key);
-            let hitKey = undefined;
-            try {
-                core.startGroup(`Restore from cache using key '${key}' into ${outPath}`);
-                hitKey = yield cache.restoreCache([outPath], key);
-            }
-            finally {
-                core.endGroup();
-            }
+            const hitKey = undefined;
+            // try {
+            //   core.startGroup(`Restore from cache using key '${key}' into ${outPath}`);
+            //   hitKey = await cache.restoreCache([outPath], key);
+            // } finally {
+            //   core.endGroup();
+            // }
             if (hitKey === undefined) {
-                yield core.group("Download and extract CMake", () => __awaiter(this, void 0, void 0, function* () {
+                yield core.group("Download and extract CMake: " + cmakeData.url, () => __awaiter(this, void 0, void 0, function* () {
                     const downloaded = yield tools.downloadTool(cmakeData.url);
                     yield cmakeData.extractFunction(downloaded, outPath);
                 }));
@@ -2371,7 +2370,7 @@ class ToolsGetter {
             try {
                 core.startGroup(`Save to cache using key '${key}' into ${outPath}`);
                 if (hitKey === undefined) {
-                    yield this.saveCache([outPath], key);
+                    //await this.saveCache([outPath], key);
                 }
                 else {
                     core.info("Skipping as cache hit.");

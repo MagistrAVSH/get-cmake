@@ -94,7 +94,7 @@ export class ToolsGetter {
     const key: string = hashCode(inputHash);
     core.debug(`hash('${inputHash}') === '${key}'`);
     const outPath = this.getOutputPath(key);
-    let hitKey: string | undefined = undefined;
+    const hitKey: string | undefined = undefined;
     // try {
     //   core.startGroup(`Restore from cache using key '${key}' into ${outPath}`);
     //   hitKey = await cache.restoreCache([outPath], key);
